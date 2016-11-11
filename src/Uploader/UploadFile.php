@@ -1,5 +1,6 @@
 <?php namespace Stevenyangecho\UEditor\Uploader;
 
+use Intervention\Image\Facades\Image;
 use Stevenyangecho\UEditor\Uploader\Upload;
 
 /**
@@ -56,8 +57,22 @@ class UploadFile  extends Upload{
 
         if(config('UEditorUpload.core.mode')=='local'){
             try {
-                $this->file->move(dirname($this->filePath), $this->fileName);
+                if (isset($this->config['watermarks'])) {
+                    $img = Image::make($file);
+                    $img->text($this->config['watermarks'], 120, 100, function($font) {
+                        $font->file(public_path('fonts/SF-UI-Text-Light.otf'));
+                        $font->size(28);
+                        $font->color('#e1e1e1');
+                        $font->align('center');
+                        $font->valign('bottom');
+                    });
+                    $img->save(public_path(dirname($this->filePath) .'/'. $this->fileName));
 
+                }else{
+                    $this->file->move(dirname($this->filePath), $this->fileName);
+
+                }
+//                \Log::info('fileName:'.asset(dirname($this->filePath) .'/'. $this->fileName));
                 $this->stateInfo = $this->stateMap[0];
 
             } catch (FileException $exception) {

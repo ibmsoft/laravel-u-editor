@@ -40,6 +40,7 @@ UEditor 前台文件完全无修改,可自由gulp等工具部署到生产环境
 To get the latest version of Laravel Exceptions, simply add the following line to the require block of your `composer.json` file:
 
 ```
+"intervention/image": "^2.3",
 "stevenyangecho/laravel-u-editor": "~1.4"
 ```
 
@@ -56,6 +57,8 @@ then run
 
 
 ## 配置
+ 如果 csrf 有问题，可以修改 middleware，过滤掉ueditor
+ 配置 config/image.php 中的为 imagick ，这个功能强大一些
 
  若以上安装没问题,自定义项目配置文件会在 config/laravel-u-editor.php  (会自动生成)
 

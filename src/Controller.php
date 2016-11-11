@@ -23,7 +23,6 @@ class Controller extends BaseController
 
         $action = $request->get('action');
 
-
         switch ($action) {
 
             case 'config':
@@ -35,6 +34,7 @@ class Controller extends BaseController
                     "maxSize" => $config['imageMaxSize'],
                     "allowFiles" => $config['imageAllowFiles'],
                     'fieldName' => $config['imageFieldName'],
+                    'watermarks' => $config['watermarks'],
                 );
                 $result = with(new UploadFile($upConfig, $request))->upload();
                 break;

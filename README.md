@@ -40,7 +40,6 @@ UEditor 前台文件完全无修改,可自由gulp等工具部署到生产环境
 To get the latest version of Laravel Exceptions, simply add the following line to the require block of your `composer.json` file:
 
 ```
-"intervention/image": "^2.3",
 "stevenyangecho/laravel-u-editor": "~1.4"
 ```
 
@@ -48,7 +47,12 @@ You'll then need to run `composer install` or `composer update` to download it a
 
 Once Laravel Exceptions is installed, you need to register the service provider. Open up `config/app.php` and add the following to the `providers` key.
 
-* `'Stevenyangecho\UEditor\UEditorServiceProvider'`
+* Stevenyangecho\UEditor\UEditorServiceProvider::class
+* Intervention\Image\ImageServiceProvider::class
+Add the facade of this package to the $aliases array.
+
+'Image' => Intervention\Image\Facades\Image::class
+
 
 then run 
 

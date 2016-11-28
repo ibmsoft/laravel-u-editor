@@ -144,6 +144,20 @@ UE.getEditor = function (id, opt) {
   iframe: ['frameborder','border','marginwidth','marginheight','width','height','src','id'],
 
 
+## composer from github
+
+  
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/ibmsoft/laravel-u-editor"
+    }
+],
+"require": {
+     "s0393/laravel-u-editor":"dev-master" //这里必须设置成 dev-master
+},
+
+
 
 ## TODO
 

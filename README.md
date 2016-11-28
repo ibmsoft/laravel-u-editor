@@ -122,6 +122,27 @@ The detail useage Please see [http://ueditor.baidu.com](http://ueditor.baidu.com
 imageUrlPrefix 这些配置里 
 比如网站是 http://s0393.com/site001
 那这里配置就是 /site001
+3.其他问题
+Cannot set property 'innerHTML' of null ueditor 解决方法
+
+UE.getEditor = function (id, opt) {
+    UE.delEditor(id);
+    var editor = new UE.ui.Editor(opt);
+    editor.render(id);
+    return editor;
+    // var editor = instances[id];
+    // if (!editor) {
+    //    editor = instances[id] = new UE.ui.Editor(opt);
+    //    editor.render(id);
+    // }
+    // return editor;
+};
+
+插入动态百度地图的问题
+在 ueditor.config.js 中增加
+,whitList: {
+  iframe: ['frameborder','border','marginwidth','marginheight','width','height','src','id'],
+
 
 
 ## TODO

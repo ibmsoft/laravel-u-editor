@@ -49,6 +49,7 @@ Once Laravel Exceptions is installed, you need to register the service provider.
 
 * Stevenyangecho\UEditor\UEditorServiceProvider::class
 * Intervention\Image\ImageServiceProvider::class
+
 Add the facade of this package to the $aliases array.
 
 'Image' => Intervention\Image\Facades\Image::class
@@ -112,6 +113,16 @@ in  your \<head>  block just put
 
 
 The detail useage Please see [http://ueditor.baidu.com](http://ueditor.baidu.com) 
+
+##常见问题
+1.注意上传目录需要有相关的权限，这个目录默认是 public/uploads/ueditor/**
+
+2.如果是部署在有上下文环境下的，需要设置图片的前缀
+具体的配置在 config/UEditorUpload.php 中的 
+imageUrlPrefix 这些配置里 
+比如网站是 http://s0393.com/site001
+那这里配置就是 /site001
+
 
 ## TODO
 

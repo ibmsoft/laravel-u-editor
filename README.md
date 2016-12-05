@@ -143,6 +143,16 @@ UE.getEditor = function (id, opt) {
 ,whitList: {
   iframe: ['frameborder','border','marginwidth','marginheight','width','height','src','id'],
 
+4、chrome 下打开文件慢，参考官方问题列表，修改对应的图片的接收格式
+public/dialogs/image.js
+accept: {
+                    title: 'Images',
+                    extensions: acceptExtensions,
+                    mimeTypes: 'image/jepg,image/png.image/jpg'
+                },
+ueditor.all.js
+ accept="image/jepg,image/png.image/jpg"             
+
 
 ## composer from github
 
